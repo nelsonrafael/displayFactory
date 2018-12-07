@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/factoryDisplay" version="0.9.0" viewmodes="maximized">
+    <access origin="*" subdomains="true"></access>
+    <tizen:application id="XRGJwJzS6R.displayFactory02" package="XRGJwJzS6R" required_version="2.3"/>
+    <tizen:privilege name='http://tizen.org/privilege/tv.inputdevice'></tizen:privilege>
+    <author email="nelsonrafaelmartins93@gmail.com">Nélson Rafael Martins</author>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
+    <feature name="http://tizen.org/feature/network.internet"/>
+    <icon src="factoryDisplay.png"/>
+    <name>factoryDisplay</name>
+    <tizen:profile name="tv-samsung"/>
+    <tizen:setting screen-orientation="landscape" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+</widget>

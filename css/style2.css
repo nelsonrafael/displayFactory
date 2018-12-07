@@ -1,0 +1,554 @@
+
+<!-- /** 
+ * (c) 2018 Nélson Rafael Martins All Rights Reserverd
+ **/
+-->
+#tempAreaOneCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaOneCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaOneCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaOneZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaOneZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaOneZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaOnePaint {
+	height: 25%;
+	width: 1.85%;
+	left: 31.33%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaTwoCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaTwoCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaTwoCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaTwoZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaTwoZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaTwoZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaTwoPaint {
+	height: 25%;
+	width: 1.85%;
+	left: 64.66%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaThreeCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaThreeCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaThreeCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaThreeZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaThreeZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaThreeZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaThreePaint {
+	height: 25%;
+	width: 1.85%;
+	left: 98%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaFourCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaFourCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaFourCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaFourZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaFourZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaFourZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaFourPaint {
+	height: 25%;
+	width: 1.85%;
+	left: 31.33%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaFiveCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaFiveCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaFiveCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaFiveZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaFiveZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaFiveZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaFivePaint {
+	height: 25%;
+	width: 1.85%;
+	left: 64.66%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaSixCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaSixCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaSixCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaSixZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaSixZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaSixZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaSixPaint {
+	height: 25%;
+	width: 1.85%;
+	left: 98%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaSevenCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaSevenCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaSevenCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaSevenZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaSevenZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaSevenZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaSevenPaint {
+	height: 25%;
+	width: 1.85%;
+	left: 31.33%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaEightCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaEightCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaEightCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaEightZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaEightZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaEightZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaEightPaint {
+	height: 25%;
+	width: 1.85%;
+	left: 64.66%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaNineCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaNineCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaNineCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaNineZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaNineZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaNineZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaNinePaint {
+	height: 25%;
+	width: 1.85%;
+	left: 98%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaTenCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaTenCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaTenCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaTenZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaTenZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaTenZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaTenPaint {
+	height: 25%;
+	width: 1.85%;
+	left: 31.33%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaElevenCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#tempAreaElevenCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#tempAreaElevenCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#tempAreaElevenZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#tempAreaElevenZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#tempAreaElevenZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#tempAreaElevenPaint {
+	height: 25%;
+	width: 1.85%;
+	left: 64.66%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#tempAreaOne {
+	top: 0%;
+	visibility: hidden;
+}
+
+#tempAreaTwo {
+	top: 0%;
+	visibility: hidden;
+}
+
+#tempAreaThree {
+	top: 0%;
+	visibility: hidden;
+}
+
+#tempAreaFour {
+	top: 25%;
+	visibility: hidden;
+}
+
+#tempAreaFive {
+	top: 25%;
+	visibility: hidden;
+}
+
+#tempAreaSix {
+	top: 25%;
+	visibility: hidden;
+}
+
+#tempAreaSeven {
+	top: 50%;
+	visibility: hidden;
+}
+
+#tempAreaEight {
+	top: 50%;
+	visibility: hidden;
+}
+
+#tempAreaNine {
+	top: 50%;
+	visibility: hidden;
+}
+
+#tempAreaTen {
+	top: 75%;
+	visibility: hidden;
+}
+
+#tempAreaEleven {
+	top: 75%;
+	visibility: hidden;
+}
+
+#tempAreaTwelve {
+	top: 75%;
+	visibility: hidden;
+}
+
+#logoArea2 {
+	position: absolute;
+	left: 20%;
+	bottom: 25%;
+}

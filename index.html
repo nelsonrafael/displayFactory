@@ -1,0 +1,307 @@
+<!-- /** 
+ * (c) 2018 Nélson Rafael Martins All Rights Reserverd
+ **/ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description"
+	content="App to display basic csv information from REST server" />
+<title>factoryDisplay</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/style2.css" />
+</head>
+<body>
+	<div id="mainAreaOne" class="mainArea left">
+		<div id="mainAreaPaint"></div>
+		<div id="mainAreaTitle"></div>
+		<div id="mainAreaStatus"></div>
+		<div id="mainAreaShift"></div>
+		<div id="mainAreaCellOne" class="mainAreaCell mainAreaCellText">Prod./Hora</div>
+		<div id="mainAreaZoneOne" class="mainAreaCell mainAreaZoneTextOne"></div>
+		<div id="mainAreaCellTwo" class="mainAreaCell mainAreaCellText"></div>
+		<div id="mainAreaZoneTwo" class="mainAreaCell mainAreaZoneTextTwo"></div>
+		<div id="mainAreaCellThree" class="mainAreaCell mainAreaCellText">Qtd.
+			Prod.</div>
+		<div id="mainAreaZoneThree" class="mainAreaCell mainAreaZoneTextOne"></div>
+		<div id="mainAreaCellFour" class="mainAreaCell mainAreaCellText">Tempo
+			Abertura</div>
+		<div id="mainAreaZoneFour" class="mainAreaCell mainAreaZoneTextOne"></div>
+		<div id="mainAreaCellFive" class="mainAreaCell mainAreaCellText">Tempo
+			Produção</div>
+		<div id="mainAreaZoneFive" class="mainAreaCell mainAreaZoneTextOne"></div>
+		<div id="mainAreaCellSix" class="mainAreaCell mainAreaCellText">Tempo
+			Útil</div>
+		<div id="mainAreaZoneSix" class="mainAreaCell mainAreaZoneTextOne"></div>
+	</div>
+	<div id="secondaryAreaOne" class="secondaryArea right">
+		<div id="secondaryAreaOnePaint"></div>
+		<div id="secondaryAreaOneTitle" class="secondaryAreaTitle"></div>
+		<div id="secondaryAreaOneStatus" class="secondaryAreaStatus"></div>
+		<div id="secondaryAreaOneCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="secondaryAreaOneZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="secondaryAreaOneCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="secondaryAreaOneZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="secondaryAreaOneCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="secondaryAreaOneZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="secondaryAreaTwo" class="secondaryArea right">
+		<div id="secondaryAreaTwoPaint"></div>
+		<div id="secondaryAreaTwoTitle" class="secondaryAreaTitle"></div>
+		<div id="secondaryAreaTwoStatus" class="secondaryAreaStatus"></div>
+		<div id="secondaryAreaTwoCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="secondaryAreaTwoZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="secondaryAreaTwoCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="secondaryAreaTwoZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="secondaryAreaTwoCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="secondaryAreaTwoZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="secondaryAreaThree" class="secondaryArea right">
+		<div id="secondaryAreaThreePaint"></div>
+		<div id="secondaryAreaThreeTitle" class="secondaryAreaTitle"></div>
+		<div id="secondaryAreaThreeStatus" class="secondaryAreaStatus"></div>
+		<div id="secondaryAreaThreeCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="secondaryAreaThreeZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="secondaryAreaThreeCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="secondaryAreaThreeZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="secondaryAreaThreeCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="secondaryAreaThreeZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="secondaryAreaFour" class="secondaryArea right">
+		<div id="secondaryAreaFourPaint"></div>
+		<div id="secondaryAreaFourTitle" class="secondaryAreaTitle"></div>
+		<div id="secondaryAreaFourStatus" class="secondaryAreaStatus"></div>
+		<div id="secondaryAreaFourCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="secondaryAreaFourZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="secondaryAreaFourCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="secondaryAreaFourZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="secondaryAreaFourCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="secondaryAreaFourZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="clockAreaOne" class="clockArea left">
+		<div id="clockFont"></div>
+		<div id="logoArea">
+			<img src="images/vicaima_logo.png" alt="Vicaima" style="width: 38%">
+		</div>
+	</div>
+	<div id="tempAreaOne" class="secondaryArea left">
+		<div id="tempAreaOnePaint"></div>
+		<div id="tempAreaOneTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaOneStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaOneCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaOneZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaOneCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaOneZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaOneCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaOneZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaTwo" class="secondaryArea middle">
+		<div id="tempAreaTwoPaint"></div>
+		<div id="tempAreaTwoTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaTwoStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaTwoCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaTwoZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaTwoCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaTwoZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaTwoCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaTwoZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaThree" class="secondaryArea right">
+		<div id="tempAreaThreePaint"></div>
+		<div id="tempAreaThreeTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaThreeStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaThreeCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaThreeZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaThreeCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaThreeZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaThreeCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaThreeZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaFour" class="secondaryArea left">
+		<div id="tempAreaFourPaint"></div>
+		<div id="tempAreaFourTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaFourStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaFourCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaFourZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaFourCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaFourZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaFourCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaFourZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaFive" class="secondaryArea middle">
+		<div id="tempAreaFivePaint"></div>
+		<div id="tempAreaFiveTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaFiveStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaFiveCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaFiveZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaFiveCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaFiveZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaFiveCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaFiveZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaSix" class="secondaryArea right">
+		<div id="tempAreaSixPaint"></div>
+		<div id="tempAreaSixTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaSixStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaSixCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaSixZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaSixCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaSixZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaSixCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaSixZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaSeven" class="secondaryArea left">
+		<div id="tempAreaSevenPaint"></div>
+		<div id="tempAreaSevenTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaSevenStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaSevenCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaSevenZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaSevenCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaSevenZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaSevenCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaSevenZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaEight" class="secondaryArea middle">
+		<div id="tempAreaEightPaint"></div>
+		<div id="tempAreaEightTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaEightStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaEightCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaEightZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaEightCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaEightZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaEightCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaEightZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaNine" class="secondaryArea right">
+		<div id="tempAreaNinePaint"></div>
+		<div id="tempAreaNineTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaNineStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaNineCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaNineZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaNineCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaNineZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaNineCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaNineZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaTen" class="secondaryArea left">
+		<div id="tempAreaTenPaint"></div>
+		<div id="tempAreaTenTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaTenStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaTenCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaTenZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaTenCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaTenZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaTenCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaTenZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaEleven" class="secondaryArea middle">
+		<div id="tempAreaElevenPaint"></div>
+		<div id="tempAreaElevenTitle" class="secondaryAreaTitle"></div>
+		<div id="tempAreaElevenStatus" class="secondaryAreaStatus"></div>
+		<div id="tempAreaElevenCellOne"
+			class="secondaryAreaCell secondaryAreaCellText">Prod./Hora</div>
+		<div id="tempAreaElevenZoneOne"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+		<div id="tempAreaElevenCellTwo"
+			class="secondaryAreaCell secondaryAreaCellText"></div>
+		<div id="tempAreaElevenZoneTwo"
+			class="secondaryAreaCell secondaryAreaZoneTextTwo"></div>
+		<div id="tempAreaElevenCellThree"
+			class="secondaryAreaCell secondaryAreaCellText">Qtd. Prod.</div>
+		<div id="tempAreaElevenZoneThree"
+			class="secondaryAreaCell secondaryAreaZoneTextOne"></div>
+	</div>
+	<div id="tempAreaTwelve" class="secondaryArea right">
+		<div id="logoArea2">
+			<img src="images/vicaima_logo.png" alt="Vicaima" style="width: 76%">
+		</div>
+	</div>
+	<script src="js/main.js" charset="utf-8"></script>
+</body>
+</html>

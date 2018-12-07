@@ -1,0 +1,452 @@
+
+<!-- /** 
+ * (c) 2018 Nélson Rafael Martins All Rights Reserverd
+ **/
+-->
+body {
+	background-color: black;
+}
+
+.mainArea {
+	height: 87%;
+	width: 67%;
+	position: fixed;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	background-color: black;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-width: 5px;
+	border-color: #ffffff;
+}
+
+.secondaryArea {
+	height: 25%;
+	width: 33.33%;
+	position: fixed;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	background-color: black;
+	border-style: solid;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-width: 5px;
+	border-color: #ffffff;
+}
+
+.mainAreaCell {
+	height: 29%;
+	width: 50%;
+	position: fixed;
+	overflow-x: hidden;
+}
+
+.secondaryAreaCell {
+	height: 50%;
+	width: 50%;
+	position: fixed;
+	overflow-x: hidden;
+}
+
+.mainAreaCellText {
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.secondaryAreaCellText {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.mainAreaZoneTextOne {
+	text-align: center;
+	font-size: 80px;
+	font-weight: bold;
+	color: white;
+}
+
+.secondaryAreaZoneTextOne {
+	text-align: center;
+	font-size: 60px;
+	font-weight: bold;
+	color: white;
+}
+
+.mainAreaZoneTextTwo {
+	text-align: center;
+	font-size: 150px;
+	font-weight: bold;
+	color: white;
+}
+
+.secondaryAreaZoneTextTwo {
+	text-align: center;
+	font-size: 90px;
+	font-weight: bold;
+	color: white;
+}
+
+.secondaryAreaTitle {
+	position: absolute;
+	top: 2%;
+	left: 2%;
+	font-size: 70px;
+	font-weight: bold;
+	color: white;
+}
+
+.secondaryAreaStatus {
+	position: absolute;
+	top: 27%;
+	left: 2%;
+	font-size: 40px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.clockArea {
+	height: 12%;
+	width: 64%;
+	position: fixed;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	background-color: black;
+}
+
+.left {
+	left: 0;
+}
+
+.middle {
+	left: 33%;
+}
+
+.right {
+	right: 0;
+}
+
+#mainAreaTitle {
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	font-size: 110px;
+	font-weight: bold;
+	color: white;
+}
+
+#mainAreaStatus {
+	position: absolute;
+	top: 20%;
+	left: 5%;
+	font-size: 60px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+#mainAreaShift {
+	position: absolute;
+	top: 30%;
+	left: 5%;
+	font-size: 80px;
+	font-weight: bold;
+	color: white;
+}
+
+#mainAreaCellOne {
+	position: absolute;
+	top: 45%;
+	left: -9%;
+}
+
+#mainAreaCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 21%;
+}
+
+#mainAreaCellThree {
+	position: absolute;
+	top: 45%;
+	left: 56%;
+}
+
+#mainAreaCellFour {
+	position: absolute;
+	top: 75%;
+	left: -9%;
+}
+
+#mainAreaCellFive {
+	position: absolute;
+	top: 75%;
+	left: 23%;
+}
+
+#mainAreaCellSix {
+	position: absolute;
+	top: 75%;
+	left: 56%;
+}
+
+#mainAreaZoneOne {
+	position: absolute;
+	top: 55%;
+	left: -9%;
+}
+
+#mainAreaZoneTwo {
+	position: absolute;
+	top: 50%;
+	left: 21%;
+}
+
+#mainAreaZoneThree {
+	position: absolute;
+	top: 55%;
+	left: 56%;
+}
+
+#mainAreaZoneFour {
+	position: absolute;
+	top: 85%;
+	left: -9%;
+}
+
+#mainAreaZoneFive {
+	position: absolute;
+	top: 85%;
+	left: 23%;
+}
+
+#mainAreaZoneSix {
+	position: absolute;
+	top: 85%;
+	left: 56%;
+}
+
+#secondaryAreaOneCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#secondaryAreaOneCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#secondaryAreaOneCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#secondaryAreaTwoCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#secondaryAreaTwoCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#secondaryAreaTwoCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#secondaryAreaThreeCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#secondaryAreaThreeCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#secondaryAreaThreeCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#secondaryAreaFourCellOne {
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+#secondaryAreaFourCellTwo {
+	position: absolute;
+	top: 45%;
+	left: 17%;
+}
+
+#secondaryAreaFourCellThree {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+#secondaryAreaOneZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#secondaryAreaOneZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#secondaryAreaOneZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#secondaryAreaTwoZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#secondaryAreaTwoZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#secondaryAreaTwoZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#secondaryAreaThreeZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#secondaryAreaThreeZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#secondaryAreaThreeZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#secondaryAreaFourZoneOne {
+	position: absolute;
+	top: 65%;
+	left: -11%;
+}
+
+#secondaryAreaFourZoneTwo {
+	position: absolute;
+	top: 55%;
+	left: 22%;
+}
+
+#secondaryAreaFourZoneThree {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#clockAreaOne {
+	top: 88%;
+}
+
+#logoArea {
+	position: absolute;
+	left: 3%;
+	bottom: 0%;
+}
+
+#clockFont {
+	position: absolute;
+	top: 25%;
+	left: 43%;
+	font-size: 70px;
+	font-weight: bold;
+	color: white;
+}
+
+#mainAreaPaint {
+	height: 25%;
+	width: 67%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#secondaryAreaOnePaint {
+	height: 25%;
+	width: 1.85%;
+	left: 98%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#secondaryAreaTwoPaint {
+	height: 25%;
+	width: 1.85%;
+	left: 98%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#secondaryAreaThreePaint {
+	height: 25%;
+	width: 1.85%;
+	left: 98%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#secondaryAreaFourPaint {
+	height: 25%;
+	width: 1.85%;
+	left: 98%;
+	position: fixed;
+	background-color: #000000;
+}
+
+#mainAreaOne {
+	top: 0%;
+}
+
+#secondaryAreaOne {
+	top: 0%;
+}
+
+#secondaryAreaTwo {
+	top: 25%;
+}
+
+#secondaryAreaThree {
+	top: 50%;
+}
+
+#secondaryAreaFour {
+	top: 75%;
+}
