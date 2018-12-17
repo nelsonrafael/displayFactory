@@ -4,6 +4,8 @@
 (function() {
 	var myVar = setInterval(myTimer, 1000);
 	var counter1 = 0, counter2 = 0;
+	var server_ip = "192.168.14.34";
+	var server_port = 8080;
 	var arrayLines = [];
 	var rotationTimer = 60, totalTimer = 5 * rotationTimer;
 	var arrayCTrab = [ 50010, 50030, 50050, 50060 ];
@@ -13,6 +15,20 @@
 	var finalLines = [];
 	var totalLines = [];
 	var mainIndex = 0, tempVar1 = 0, tempVar2 = 0;
+	var KEY_ENTER = 13, KEY_RED = 403, KEY_GREEN = 404, KEY_BLUE = 406, KEY_BACK = 10009, KEY_LEFT = 37, KEY_UP = 38, KEY_RIGHT = 39, KEY_DOWN = 40, KEY_ZERO = 48, KEY_ONE = 49, KEY_TWO = 50, KEY_THREE = 51, KEY_FOUR = 52, KEY_FIVE = 53, KEY_SIX = 54, KEY_SEVEN = 55, KEY_EIGHT = 56, KEY_NINE = 57;
+	var menuVar = false;
+	var menuIndex = 0;
+	var menuSelected = false;
+	var cookie_ip = '', cookie_port = '', cookie_line1 = '', cookie_line2 = '', cookie_line3 = '', cookie_line4 = '';
+
+	function verifyCTrab(id) {
+		for (var i = 0; i < arrayTotal.length; i++) {
+			if (Number(id) === arrayTotal[i]) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	function chooseLines() {
 		var i, j;
@@ -428,6 +444,11 @@
 			} else if (finalLines[mainIndex].estado === "PARADO") {
 				updateMainIndex();
 			}
+		} else {
+			if (mainIndex >= size) {
+				mainIndex = 0;
+				tempVar1 = 1;
+			}
 		}
 	}
 
@@ -604,31 +625,32 @@
 		var int = Math.floor(parseFloat(finalLines[mainIndex].tabert));
 		var frac = parseInt((parseFloat(finalLines[mainIndex].tabert) - int) * 60);
 		if (frac < 10) {
-			temp = int + "h" + "0" + frac + "m";
+			temp = int + ":" + "0" + frac;
 		} else {
-			temp = int + "h" + frac + "m";
+			temp = int + ":" + frac;
 		}
 		document.getElementById("mainAreaZoneFour").innerHTML = temp;
 		int = Math.floor(parseFloat(finalLines[mainIndex].tprod));
 		frac = parseInt((parseFloat(finalLines[mainIndex].tprod) - int) * 60);
 		if (frac < 10) {
-			temp = int + "h" + "0" + frac + "m";
+			temp = int + ":" + "0" + frac;
 		} else {
-			temp = int + "h" + frac + "m";
+			temp = int + ":" + frac;
 		}
 		document.getElementById("mainAreaZoneFive").innerHTML = temp;
 		int = Math.floor(parseFloat(finalLines[mainIndex].tutil));
 		frac = parseInt((parseFloat(finalLines[mainIndex].tutil) - int) * 60);
 		if (frac < 10) {
-			temp = int + "h" + "0" + frac + "m";
+			temp = int + ":" + "0" + frac;
 		} else {
-			temp = int + "h" + frac + "m";
+			temp = int + ":" + frac;
 		}
 		document.getElementById("mainAreaZoneSix").innerHTML = temp;
 	}
 
 	function getLinhas(callback) {
-		var usersUrl = "http://192.168.14.34:8080/api/linhas";
+		var usersUrl = "http://" + server_ip + ":" + server_port
+				+ "/api/linhas";
 		var xhttp = new XMLHttpRequest();
 		if ((typeof XDomainRequest !== "undefined")) {
 			xhttp = new XDomainRequest();
@@ -667,6 +689,23 @@
 		var timeDate = day + "/" + month + "/" + year + " " + hour + ":"
 				+ minute + ":" + second;
 		document.getElementById("clockFont").innerHTML = timeDate;
+		if (menuVar) {
+			var aId = "a" + menuIndex;
+			document.getElementById("a0").style.color = "#818181";
+			document.getElementById("a0").style.background = "rgba(0, 0, 0, 0.4)";
+			document.getElementById("a1").style.color = "#818181";
+			document.getElementById("a1").style.background = "rgba(0, 0, 0, 0.4)";
+			document.getElementById("a2").style.color = "#818181";
+			document.getElementById("a2").style.background = "rgba(0, 0, 0, 0.4)";
+			document.getElementById("a3").style.color = "#818181";
+			document.getElementById("a3").style.background = "rgba(0, 0, 0, 0.4)";
+			document.getElementById("a4").style.color = "#818181";
+			document.getElementById("a4").style.background = "rgba(0, 0, 0, 0.4)";
+			document.getElementById("a5").style.color = "#818181";
+			document.getElementById("a5").style.background = "rgba(0, 0, 0, 0.4)";
+			document.getElementById(aId).style.color = "#000000";
+			document.getElementById(aId).style.background = "#ffffff";
+		}
 
 		if (counter2 >= totalTimer) {
 			var j = 0, size = arrayCTrab.length;
@@ -704,10 +743,19 @@
 		counter1 += 1;
 		counter2 += 1;
 		counter3 += 1;
-
 	}
 
-	function init() {
+	function openNav() {
+		document.getElementById("mySidenav").style.width = "50%";
+		menuVar = true;
+	}
+
+	function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+		menuVar = false;
+	}
+
+	function forceFetch() {
 		getLinhas(function() {
 			var output = JSON.parse(this.responseText);
 			for (var i = 0; i < output.data.length; i++) {
@@ -715,6 +763,222 @@
 			}
 			chooseLines();
 		});
+	}
+
+	function onKeyDown(ev) {
+		/*
+		 * if (ev.keyCode === KEY_CODES.BACK) { try {
+		 * tizen.application.getCurrentApplication().exit(); } catch (error) {
+		 * console.error('exit application error', error); } }
+		 */
+		if (menuSelected) {
+			var inputVar = "input" + menuIndex;
+			switch (ev.keyCode) {
+			case KEY_ZERO:
+				document.getElementById(inputVar).value += "0";
+				break;
+			case KEY_ONE:
+				document.getElementById(inputVar).value += "1";
+				break;
+			case KEY_TWO:
+				document.getElementById(inputVar).value += "2";
+				break;
+			case KEY_THREE:
+				document.getElementById(inputVar).value += "3";
+				break;
+			case KEY_FOUR:
+				document.getElementById(inputVar).value += "4";
+				break;
+			case KEY_FIVE:
+				document.getElementById(inputVar).value += "5";
+				break;
+			case KEY_SIX:
+				document.getElementById(inputVar).value += "6";
+				break;
+			case KEY_SEVEN:
+				document.getElementById(inputVar).value += "7";
+				break;
+			case KEY_EIGHT:
+				document.getElementById(inputVar).value += "8";
+				break;
+			case KEY_NINE:
+				document.getElementById(inputVar).value += "9";
+				break;
+			case KEY_RED:
+				document.getElementById(inputVar).value += ".";
+				break;
+			case KEY_BLUE:
+				document.getElementById(inputVar).value = document
+						.getElementById(inputVar).value.substring(0, document
+						.getElementById(inputVar).value.length - 1);
+				break;
+			case KEY_ENTER:
+				menuSelected = false;
+				var modal = document.getElementById('modal' + menuIndex);
+				modal.style.display = "none";
+				switch (menuIndex) {
+				case 0:
+					server_ip = document.getElementById(inputVar).value;
+					setCookie("ip", server_ip, 365);
+					break;
+				case 1:
+					server_port = Number(document.getElementById(inputVar).value);
+					setCookie("port", server_port, 365);
+					break;
+				case 2:
+					if (verifyCTrab(document.getElementById(inputVar).value)) {
+						arrayCTrab[0] = Number(document
+								.getElementById(inputVar).value);
+						setCookie("line1", arrayCTrab[0], 365);
+					}
+					break;
+				case 3:
+					if (verifyCTrab(document.getElementById(inputVar).value)) {
+						arrayCTrab[1] = Number(document
+								.getElementById(inputVar).value);
+						setCookie("line2", arrayCTrab[1], 365);
+					}
+					break;
+				case 4:
+					if (verifyCTrab(document.getElementById(inputVar).value)) {
+						arrayCTrab[2] = Number(document
+								.getElementById(inputVar).value);
+						setCookie("line3", arrayCTrab[2], 365);
+					}
+					break;
+				case 5:
+					if (verifyCTrab(document.getElementById(inputVar).value)) {
+						arrayCTrab[3] = Number(document
+								.getElementById(inputVar).value);
+						setCookie("line4", arrayCTrab[3], 365);
+					}
+					break;
+				default:
+					return;
+				}
+				break;
+			case KEY_BACK:
+				menuSelected = false;
+				var modal = document.getElementById('modal' + menuIndex);
+				modal.style.display = "none";
+				break;
+			default:
+				return;
+			}
+		} else {
+			switch (ev.keyCode) {
+			case KEY_ENTER:
+				if (!menuVar) {
+					openNav();
+				} else {
+					closeNav();
+					var modal = document.getElementById('modal' + menuIndex);
+					modal.style.display = "block";
+					menuSelected = true;
+				}
+				break;
+			case KEY_BACK:
+				if (menuVar) {
+					closeNav();
+				}
+				break;
+			case KEY_DOWN:
+				if (menuVar) {
+					if (menuIndex < 5) {
+						menuIndex++;
+					}
+				}
+				break;
+			case KEY_UP:
+				if (menuVar) {
+					if (menuIndex > 0) {
+						menuIndex--;
+					}
+				}
+				break;
+			case KEY_GREEN:
+				forceFetch();
+				break;
+			default:
+				// other keys are not supported
+				return;
+			}
+		}
+	}
+
+	function bindEvents() {
+		document.addEventListener('keydown', onKeyDown);
+	}
+
+	function setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		var expires = "expires=" + d.toUTCString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+
+	function getCookie(cname) {
+		var name = cname + "=";
+		var decodedCookie = decodeURIComponent(document.cookie);
+		var ca = decodedCookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) === ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) === 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+
+	function init() {
+		cookie_ip = getCookie('ip');
+		cookie_port = getCookie('port');
+		cookie_line1 = getCookie('line1');
+		cookie_line2 = getCookie('line2');
+		cookie_line3 = getCookie('line3');
+		cookie_line4 = getCookie('line4');
+		if (cookie_ip !== "") {
+			server_ip = cookie_ip;
+		}
+		if (cookie_port !== "") {
+			server_port = Number(cookie_port);
+		}
+		if (cookie_line1 !== "") {
+			arrayCTrab[0] = Number(cookie_line1);
+		}
+		if (cookie_line2 !== "") {
+			arrayCTrab[1] = Number(cookie_line2);
+		}
+		if (cookie_line3 !== "") {
+			arrayCTrab[2] = Number(cookie_line3);
+		}
+		if (cookie_line4 !== "") {
+			arrayCTrab[3] = Number(cookie_line4);
+		}
+		tizen.tvinputdevice.registerKey('0');
+		tizen.tvinputdevice.registerKey('1');
+		tizen.tvinputdevice.registerKey('2');
+		tizen.tvinputdevice.registerKey('3');
+		tizen.tvinputdevice.registerKey('4');
+		tizen.tvinputdevice.registerKey('5');
+		tizen.tvinputdevice.registerKey('6');
+		tizen.tvinputdevice.registerKey('7');
+		tizen.tvinputdevice.registerKey('8');
+		tizen.tvinputdevice.registerKey('9');
+		tizen.tvinputdevice.registerKey('ColorF0Red');
+		tizen.tvinputdevice.registerKey('ColorF1Green');
+		tizen.tvinputdevice.registerKey('ColorF3Blue');
+		getLinhas(function() {
+			var output = JSON.parse(this.responseText);
+			for (var i = 0; i < output.data.length; i++) {
+				arrayLines[i] = output.data[i];
+			}
+			chooseLines();
+		});
+		bindEvents();
 	}
 
 	window.onload = init;
