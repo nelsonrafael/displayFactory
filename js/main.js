@@ -19,6 +19,8 @@
 	var menuVar = false;
 	var menuIndex = 0;
 	var menuSelected = false;
+	var breakCounter = 0;
+	var justStarted = true;
 	var cookie_ip = '', cookie_port = '', cookie_line1 = '', cookie_line2 = '', cookie_line3 = '', cookie_line4 = '';
 
 	function verifyCTrab(id) {
@@ -58,9 +60,6 @@
 		if (finalLines[mainIndex].estado === "PARADO") {
 			updateMainIndex();
 		}
-		updatePaint();
-		mainDisplay();
-		secondaryDisplay();
 	}
 
 	function displayTemp() {
@@ -461,8 +460,6 @@
 			document.getElementById("mainAreaPaint").style.backgroundColor = "#000000";
 		} else if (finalLines[mainIndex].estado === "IMPRODUTIVO") {
 			document.getElementById("mainAreaPaint").style.backgroundColor = "#cc0000";
-			// window.location="screensaver.html";
-			// window.location="screenplayer.html";
 		} else if (finalLines[mainIndex].estado === "SETUP") {
 			document.getElementById("mainAreaPaint").style.backgroundColor = "#e6e600";
 			document.getElementById("mainAreaTitle").style.color = "#000000";
@@ -664,6 +661,20 @@
 	}
 
 	function myTimer() {
+		if (justStarted) {
+			getLinhas(function() {
+				justStarted = false;
+				var output = JSON.parse(this.responseText);
+				for (var i = 0; i < output.data.length; i++) {
+					arrayLines[i] = output.data[i];
+				}
+				chooseLines();
+				updatePaint();
+				mainDisplay();
+				secondaryDisplay();
+			});
+		}
+
 		var now = new Date();
 		var year = "" + now.getFullYear();
 		var month = "" + (now.getMonth() + 1);
@@ -689,56 +700,74 @@
 		var timeDate = day + "/" + month + "/" + year + " " + hour + ":"
 				+ minute + ":" + second;
 		document.getElementById("clockFont").innerHTML = timeDate;
-		if (menuVar) {
-			var aId = "a" + menuIndex;
-			document.getElementById("a0").style.color = "#818181";
-			document.getElementById("a0").style.background = "rgba(0, 0, 0, 0.4)";
-			document.getElementById("a1").style.color = "#818181";
-			document.getElementById("a1").style.background = "rgba(0, 0, 0, 0.4)";
-			document.getElementById("a2").style.color = "#818181";
-			document.getElementById("a2").style.background = "rgba(0, 0, 0, 0.4)";
-			document.getElementById("a3").style.color = "#818181";
-			document.getElementById("a3").style.background = "rgba(0, 0, 0, 0.4)";
-			document.getElementById("a4").style.color = "#818181";
-			document.getElementById("a4").style.background = "rgba(0, 0, 0, 0.4)";
-			document.getElementById("a5").style.color = "#818181";
-			document.getElementById("a5").style.background = "rgba(0, 0, 0, 0.4)";
-			document.getElementById(aId).style.color = "#000000";
-			document.getElementById(aId).style.background = "#ffffff";
-		}
 
-		if (counter2 >= totalTimer) {
-			var j = 0, size = arrayCTrab.length;
-			for (i = 0; i < size; i++) {
-				if (finalLines[i].estado === "PARADO") {
-					j++;
-				}
-			}
-			counter2 = j * rotationTimer;
-			getLinhas(function() {
-				var output = JSON.parse(this.responseText);
-				for (var i = 0; i < output.data.length; i++) {
-					arrayLines[i] = output.data[i];
-				}
-				chooseLines();
-			});
-		}
-		if (counter1 >= rotationTimer) {
-			if (tempVar2 === 1) {
-				tempVar2 = 0, counter1 = 0;
-				setHidden();
+		if ((now.getHours() == 10 && now.getMinutes() < 30)
+				|| (now.getHours() == 18 && now.getMinutes() >= 30)
+				|| (now.getHours() == 1 && now.getMinutes() >= 30)) {
+			breakCounter++;
+			if (breakCounter >= 60) {
+				breakCounter = 0;
+				window.location = "screensaver.html";
 			} else {
-				counter1 = 0;
-				updateMainIndex();
-				updatePaint();
-				mainDisplay();
-				secondaryDisplay();
+				setVisible();
+				displayTemp();
 			}
-		}
-		if (tempVar1 === 1) {
-			counter1 = 0, tempVar1 = 0, tempVar2 = 1;
-			setVisible();
-			displayTemp();
+
+		} else {
+			if (menuVar) {
+				var aId = "a" + menuIndex;
+				document.getElementById("a0").style.color = "#818181";
+				document.getElementById("a0").style.background = "rgba(0, 0, 0, 0.4)";
+				document.getElementById("a1").style.color = "#818181";
+				document.getElementById("a1").style.background = "rgba(0, 0, 0, 0.4)";
+				document.getElementById("a2").style.color = "#818181";
+				document.getElementById("a2").style.background = "rgba(0, 0, 0, 0.4)";
+				document.getElementById("a3").style.color = "#818181";
+				document.getElementById("a3").style.background = "rgba(0, 0, 0, 0.4)";
+				document.getElementById("a4").style.color = "#818181";
+				document.getElementById("a4").style.background = "rgba(0, 0, 0, 0.4)";
+				document.getElementById("a5").style.color = "#818181";
+				document.getElementById("a5").style.background = "rgba(0, 0, 0, 0.4)";
+				document.getElementById(aId).style.color = "#000000";
+				document.getElementById(aId).style.background = "#ffffff";
+			}
+
+			if (counter2 >= totalTimer) {
+				var j = 0, size = arrayCTrab.length;
+				for (i = 0; i < size; i++) {
+					if (finalLines[i].estado === "PARADO") {
+						j++;
+					}
+				}
+				counter2 = j * rotationTimer;
+				getLinhas(function() {
+					var output = JSON.parse(this.responseText);
+					for (var i = 0; i < output.data.length; i++) {
+						arrayLines[i] = output.data[i];
+					}
+					chooseLines();
+					updatePaint();
+					mainDisplay();
+					secondaryDisplay();
+				});
+			}
+			if (counter1 >= rotationTimer) {
+				if (tempVar2 === 1) {
+					tempVar2 = 0, counter1 = 0;
+					setHidden();
+				} else {
+					counter1 = 0;
+					updateMainIndex();
+					updatePaint();
+					mainDisplay();
+					secondaryDisplay();
+				}
+			}
+			if (tempVar1 === 1) {
+				counter1 = 0, tempVar1 = 0, tempVar2 = 1;
+				setVisible();
+				displayTemp();
+			}
 		}
 		counter1 += 1;
 		counter2 += 1;
@@ -762,7 +791,10 @@
 				arrayLines[i] = output.data[i];
 			}
 			chooseLines();
-		});
+			updatePaint();
+			mainDisplay();
+			secondaryDisplay();
+		});	
 	}
 
 	function onKeyDown(ev) {
@@ -971,13 +1003,6 @@
 		tizen.tvinputdevice.registerKey('ColorF0Red');
 		tizen.tvinputdevice.registerKey('ColorF1Green');
 		tizen.tvinputdevice.registerKey('ColorF3Blue');
-		getLinhas(function() {
-			var output = JSON.parse(this.responseText);
-			for (var i = 0; i < output.data.length; i++) {
-				arrayLines[i] = output.data[i];
-			}
-			chooseLines();
-		});
 		bindEvents();
 	}
 
